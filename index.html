@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="w-50">
+            <h2>Quản lý tuyển sinh</h2>
+            <form>
+                <div class="form-group">
+                    <input placeholder="Điểm chuẩn" type="number" class="form-control" id="inputDiemChuan">
+                </div>
+                <ul>
+                    <h2>Chọn khu vực</h2>
+                    <li>
+                        <input id="khuVucA" value="A" type="radio" name="selector">
+                        <label for="khuVucA">A</label>
+                        <div class="check"></div>
+                    </li>
+                    <li>
+                        <input id="khuVucB" value="B" type="radio" name="selector">
+                        <label for="khuVucB">B</label>
+                        <div class="check"></div>
+                    </li>
+                    <li>
+                        <input id="khuVucC" value="C" type="radio" name="selector">
+                        <label for="khuVucC">C</label>
+                        <div class="check"></div>
+                    </li>
+                </ul>
+                <ul>
+                    <h2>Chọn đối tượng</h2>
+                    <li>
+                        <input id="doiTuong1" type="checkbox" name="selector">
+                        <label for="doiTuong1">1</label>
+                        <div class="check"></div>
+                    </li>
+                    <li>
+                        <input id="doiTuong2" type="checkbox" name="selector">
+                        <label for="doiTuong2">2</label>
+                        <div class="check"></div>
+                    </li>
+                    <li>
+                        <input id="doiTuong3" type="checkbox" name="selector">
+                        <label for="doiTuong3">3</label>
+                        <div class="check"></div>
+                    </li>
+                </ul>
+                <div class="form-group">
+                    <input placeholder="Điểm môn 1" type="number" class="form-control" id="inputDiemMon1">
+                </div>
+                <div class="form-group">
+                    <input placeholder="Điểm môn 2" type="number" class="form-control" id="inputDiemMon2">
+                </div>
+                <div class="form-group">
+                    <input placeholder="Điểm môn 3" type="number" class="form-control" id="inputDiemMon3">
+                </div>
+                <button id="btnTinhDiemTong" type="button" class="btn btn-primary">Kết Quả</button>
+                <p id="txtDiemTong" class="alert alert-danger"></p>
+            </form>
+
+            <h2>Tính tiền điện</h2>
+            <form>
+                <div class="form-group">
+                    <input placeholder="Nhập họ tên" type="text" class="form-control" id="inputHoTen">
+                </div>
+                <div class="form-group">
+                    <input placeholder="Nhập số kw" type="number" class="form-control" id="inputSoKw">
+                </div>
+                <button id="btnTinhTienDien" type="button" class="btn btn-primary">Tính Tiền Điện</button>
+                <p id="txtTienDien" class="alert alert-danger"></p>
+            </form>
+
+            <h2>Tính thuế thu nhập cá nhân</h2>
+            <form>
+                <div class="form-group">
+                    <input placeholder="Nhập họ tên" type="text" class="form-control" id="inputTen">
+                </div>
+                <div class="form-group">
+                    <input placeholder="Tổng thu nhập năm" type="number" class="form-control" id="inputThuNhapNam">
+                </div>
+                <div class="form-group">
+                    <input placeholder="Số người phụ thuộc" type="number" class="form-control" id="inputNguoiPhuThuoc">
+                </div>
+                <button id="btnTinhThue" type="button" class="btn btn-primary">Tính Tiền Thuế</button>
+                <p id="txtTienThue" class="alert alert-danger"></p>
+            </form>
+
+            <h2>Tính tiền cáp</h2>
+            <form>
+                <select class="mb-2" id="loaiKH"onchange="hienThiNhapKetNoi()" >
+                    <option value="khachHang">Chọn loại khách hàng</option>
+                    <option value="nhaDan">Nhà Dân</option>
+                    <option value="doanhNghiep">Doanh Nghiệp</option>
+                  </select>
+                <div class="form-group">
+                    <input placeholder="Nhập mã khách hàng" type="text" class="form-control" id="inputMaKH">
+                </div>
+                <div class="form-group">
+                    <input placeholder="Số kênh cao cấp" type="number" class="form-control" id="inputSoKenh">
+                </div>
+                <div style="display: none;" id="hienSoKetNoi" class="form-group">
+                    <input placeholder="Số kết nối" type="number" class="form-control" id="inputSoKetNoi">
+                </div>
+                <button id="btnTinhTienCap" type="button" class="btn btn-primary">Tính Tiền Cáp</button>
+                <p id="txtTienCap" class="alert alert-danger"></p>
+            </form>
+        </div>
+
+
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+
+    <script src="./js/baitap1.js"></script>
+    <script src="./js/baitap2.js"></script>
+    <script src="./js/baitap3.js"></script>
+    <script src="./js/baitap4.js"></script>
+</body>
+
+</html>
